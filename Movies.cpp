@@ -8,11 +8,15 @@ void Movies::AddMovie()
 	string Rating;
 	int TimesWatched = 0;
 
-	cout << "Movie Name: ";
-	cin >> Name;
+	cout << "Movie Name: " << endl;
+	getline(cin, Name);
+
+	cout << "\n";
 
 	cout << "Movie Rating: ";
-	cin >> Rating;
+	getline(cin, Rating);
+
+	cout << "\n";
 
 	cout << "Times movie has been watched: ";
 	cin >> TimesWatched;
@@ -20,14 +24,16 @@ void Movies::AddMovie()
 	map<string, Movie>::iterator itr;
 	itr = MovieList.find(Name);
 
-	if (itr == MovieList.end())
+	if (itr != MovieList.end())
 	{
-		cout << "Movie is already in the list" << endl;
+		cout << "Movie is already in the list\n\n" << endl;
 		return;
 	}
 
 	Movie NewMovie(Name, Rating, TimesWatched);
-	MovieList.insert(pair<string, Movie>(Name, NewMovie));
+	MovieList.insert({ Name, NewMovie });
+
+	cout << "\n\n" << endl;
 }
 
 
@@ -36,8 +42,8 @@ void Movies::IncreaseMovieWatchCount()
 {
 	string Name;
 
-	cout << "Movie name: ";
-	cin >> Name;
+	cout << "Movie name" << endl;
+	getline(cin, Name);
 
 	map<string, Movie>::iterator movie;
 	movie = MovieList.find(Name);
@@ -45,7 +51,8 @@ void Movies::IncreaseMovieWatchCount()
 	if (movie != MovieList.end())
 	{
 		movie->second.IncrementWatchCount();
-		cout << movie->first << " increased its watch count by 1 to " << movie->second.GetWatchCount() << endl;
+		cout << movie->first << " increased its watch count by 1 to being watched " << movie->second.GetWatchCount() << " times." << endl;
+		cout << "\n\n" << endl;
 		return;
 	}
 
@@ -63,4 +70,6 @@ void Movies::DisplayAllMovies()
 	{
 		cout << itr->first << endl;
 	}
+
+	cout << "\n\n" << endl;
 }

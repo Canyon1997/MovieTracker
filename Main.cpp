@@ -29,10 +29,14 @@ int main()
 		ProvidePrompt();
 		cin >> UserAnswer;
 
-		while (!isdigit(UserAnswer) || UserAnswer > 4 || UserAnswer < 1)
+		cout << "\n" << endl;
+
+		while (UserAnswer > 4 || UserAnswer < 1)
 		{
 			cout << "Please reselect a valid number option" << endl;
 			cin >> UserAnswer;
+
+			cout << "\n";
 		}
 
 		switch (UserAnswer)

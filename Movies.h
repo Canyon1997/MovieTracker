@@ -1,6 +1,7 @@
 #pragma once
 #include "Movie.h"
 #include "stdlib.h"
+#include <string>
 #include <map>
 
 using namespace std;
