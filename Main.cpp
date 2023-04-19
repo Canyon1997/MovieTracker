@@ -33,7 +33,7 @@ int main()
 
 		while (UserAnswer > 4 || UserAnswer < 1)
 		{
-			cout << "Please reselect a valid number option" << endl;
+			cout << "Please re-enter a valid number option" << endl;
 			cin >> UserAnswer;
 
 			cout << "\n";

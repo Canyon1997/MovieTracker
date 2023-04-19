@@ -8,13 +8,15 @@ void Movies::AddMovie()
 	string Rating;
 	int TimesWatched = 0;
 
+	cin.ignore(1, '\n');
+
 	cout << "Movie Name: ";
 	getline(cin, Name);
 
 	cout << "\n";
 
 	cout << "Movie Rating: ";
-	getline(cin, Rating);
+	cin >> Rating;
 
 	cout << "\n";
 
@@ -42,7 +44,9 @@ void Movies::IncreaseMovieWatchCount()
 {
 	string Name;
 
-	cout << "Movie name" << endl;
+	cin.ignore(1, '\n');
+
+	cout << "Movie name: ";
 	getline(cin, Name);
 
 	map<string, Movie>::iterator movie;
@@ -64,6 +68,11 @@ void Movies::IncreaseMovieWatchCount()
 
 void Movies::DisplayAllMovies()
 {
+	if (MovieList.empty())
+	{
+		cout << "Movie list is empty, start adding movies to view all the movies you've watched.\n" << endl;
+	}
+
 	map<string, Movie>::iterator itr;
 
 	for (itr = MovieList.begin(); itr != MovieList.end(); itr++)
