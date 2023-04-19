@@ -8,7 +8,7 @@ void Movies::AddMovie()
 	string Rating;
 	int TimesWatched = 0;
 
-	cout << "Movie Name: " << endl;
+	cout << "Movie Name: ";
 	getline(cin, Name);
 
 	cout << "\n";
